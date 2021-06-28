@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import { multipleFileUpload } from "../data/api";
 
 const MultipleFileUpload = () => {
@@ -32,7 +33,7 @@ const MultipleFileUpload = () => {
   };
 
   return (
-    <div>
+    <StyledMultipleFileUpload>
       <h1>Multiple File Upload</h1>
       <div>
         <label htmlFor="title">Title</label>
@@ -52,8 +53,15 @@ const MultipleFileUpload = () => {
           Upload
         </button>
       </div>
-    </div>
+    </StyledMultipleFileUpload>
   );
 };
+
+const StyledMultipleFileUpload = styled.div`
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default MultipleFileUpload;

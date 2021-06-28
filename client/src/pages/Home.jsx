@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./App.css";
-import SingleFileUpload from "./pages/SingleFileUpload";
-import MultipleFileUpload from "./pages/MultipleFileUpload";
+import "../App.css";
+import SingleImages from "../components/SingleImages";
+import styled from "styled-components";
+import GMB from "../assets/gmb.jpg";
+
+const images = [GMB, GMB, GMB];
 
 function App() {
   const [profile, setProfile] = useState("");
@@ -30,12 +33,24 @@ function App() {
   console.log(image);
 
   return (
-    <div className="App">
+    <StyledHome>
       <h1>Single & Multiple File Upload Using MERN Stack</h1>
-      <SingleFileUpload />
-      <MultipleFileUpload />
-    </div>
+
+      <SingleImages title="Single Images" images={images} />
+      <SingleImages title="Single Images" images={images} />
+    </StyledHome>
   );
 }
+
+const StyledHome = styled.div`
+  width: 90%;
+  margin: 0 auto;
+
+  h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 3rem;
+  }
+`;
 
 export default App;
